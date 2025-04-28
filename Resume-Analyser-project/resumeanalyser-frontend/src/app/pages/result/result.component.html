@@ -1,0 +1,117 @@
+<div class="resume-analyzer-container">
+  <div *ngIf="analysis as result; else noData" class="max-w-2xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-2xl text-gray-800 dark:bg-gray-900 dark:text-white">
+    
+    <h2 class="text-2xl font-bold mb-4 text-blue-600 ">📊 Resume Match Result</h2>
+
+    <!-- Overall Match Score -->
+    <div class="mb-6">
+      <!-- <p class="text-lg font-semibold mb-2">
+        <span 
+        class="text-green-600">✅ Overall Match Score :</span><strong>{{ result.overallMatchScore }}%</strong> 
+      </p> -->
+      <div class="text-lg font-semibold mb-2">
+        <strong style="color: #03dac6">✅ Overall Match Score :</strong> 
+        <span style="color: #03dac6"><strong>{{ result.overallMatchScore }}%</strong> </span>
+      </div>
+    </div>
+    <br>
+
+    <!-- Category Match Scores -->
+    <!-- <div class="mb-6">
+      <h3 class="text-lg font-semibold text-indigo-500 mb-2">📂 Category Match Scores</h3>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Skills: {{ result.categoryMatchScores.skills }}%</li>
+        <li>Tools: {{ result.categoryMatchScores.tools }}%</li>
+        <li>Methodologies: {{ result.categoryMatchScores.methodologies }}%</li>
+        <li>Domains: {{ result.categoryMatchScores.domains }}%</li>
+      </ul>
+    </div> -->
+
+  <!-- Missing Keywords -->
+<div class="mb-6">
+  <h4 class="text-xl font-semibold text-yellow-500 mb-2">⚠️ Missing Keywords</h4>
+  <div class="pl-4 space-y-2">
+
+    <div *ngIf="result.missingKeywords.skills.length">
+      <strong style="color: #03dac6">Skills :</strong> 
+      <span style="color: #03dac6">  {{ result.missingKeywords.skills.join(', ') }}</span>    
+    </div>
+
+    <ng-container *ngIf="!result.missingKeywords.skills.length">
+      <div class="text-green-600 font-medium">
+       ✅  <strong style="color: #03dac6">Skills :</strong>
+        <span style="color: #03dac6"> Almost all required skills matched!</span>
+      </div>
+    </ng-container>
+<br>
+    <div *ngIf="result.missingKeywords.domains.length">
+      ✅  <strong style="color: #03dac6">Domains :</strong>
+      <span style="color: #03dac6"> {{ result.missingKeywords.domains.join(', ') }}</span>
+
+    </div>
+  </div>
+</div>
+<br>
+    <!-- Recommendations -->
+    <div>
+      <h4 class="text-xl font-semibold text-yellow-500 mb-2">💡 Recommendations</h4>
+
+      <!-- <p class="text-xl font-semibold text-purple-500 mb-2">💡 Recommendations</p> -->
+      <ul class="space-y-4">
+        <li *ngFor="let tip of result.recommendations" class="border border-purple-300 p-3 rounded-md bg-purple-50 dark:bg-purple-900 dark:border-purple-600">
+          <p><strong>{{ tip.type }}:</strong> {{ tip.message }}</p>
+          <p class="text-sm italic mt-1 text-gray-600 dark:text-gray-300">💬 {{ tip.suggestion }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- No Data Template -->
+  <ng-template #noData>
+    <div class="text-center text-gray-500 mt-10">
+      <p>😕 No analysis data available.</p>
+    </div>
+  </ng-template>
+</div>
+
+
+
+
+<!-- 
+
+
+<div class="resume-analyzer-container">
+<div *ngIf="analysis as result; else noData" class="max-w-2xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-2xl text-gray-800 dark:bg-gray-900 dark:text-white">
+  <h2 class="text-2xl font-bold mb-4 text-blue-600">Resume Match Result</h2>
+
+  <div class="mb-4">
+    <p class="text-xl font-semibold">
+      <span class="text-green-600">✅ Match Score:</span> {{ result.matchScore }}%
+    </p>
+  </div>
+  
+
+  <div class="mb-4">
+    <h3 class="text-lg font-semibold text-yellow-500 mb-2">⚠️ Missing Keywords</h3>
+    <ul class="list-disc pl-5 space-y-1">
+      <li *ngFor="let keyword of result.missingKeywords">{{ keyword }}</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 class="text-lg font-semibold text-purple-500 mb-2">💡 Recommendations</h3>
+    <ul class="list-disc pl-5 space-y-1">
+      <li *ngFor="let tip of result.recommendations">{{ tip }}</li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #noData>
+  <div class="text-center text-gray-500 mt-10">
+    <p>😕 No analysis data available.</p>
+  </div>
+</ng-template>
+
+
+</div>
+ -->

@@ -1,0 +1,87 @@
+<div class="container">
+  <button class="theme-toggle" (click)="toggleTheme()">
+    {{ isDarkMode ?'🌙 Dark Mode':'☀️ Light Mode'  }}
+  </button>
+  <app-upload></app-upload>
+  <div class="divider"></div>
+</div>
+ 
+
+
+
+
+
+
+<router-outlet></router-outlet>
+<!-- 
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7fa;
+  }
+
+  .card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .upload-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .upload-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .job-description {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 150px;
+    resize: vertical;
+  }
+
+  .submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      width: 95%;
+    }
+  }
+</style> -->

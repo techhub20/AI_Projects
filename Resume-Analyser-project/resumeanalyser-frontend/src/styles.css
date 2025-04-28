@@ -1,0 +1,61 @@
+   body.dark-theme {
+    background-color: #121212;
+    color: #f1f1f1;
+  }
+  
+  body.light-theme {
+    background-color: #e1e2e7;
+    color: #000000;
+  }
+  
+  /* Example: card or container classes */
+  .resume-analyzer-container,
+  .upload-section {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body.dark-theme .resume-analyzer-container,
+  body.dark-theme .upload-section {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+  
+  body.light-theme .resume-analyzer-container,
+  body.light-theme .upload-section {
+    background-color: #222547;
+    color: #ffffff;
+  }
+  
+
+
+
+  /* Other custom styling for dark and light mode components can go here */
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+  
+  /* Dark mode toggle button */
+  body.dark-theme .theme-toggle {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Light mode toggle button */
+  body.light-theme .theme-toggle {
+    background-color: rgba(83, 79, 79, 0.1);
+  }
+  
+  .theme-toggle:hover {
+    transform: scale(1.05);
+  }
+  

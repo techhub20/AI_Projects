@@ -1,0 +1,42 @@
+.resume-analyzer-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(146, 8, 8, 0.3);
+    transition: all 0.3s ease;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  h2 {
+    margin-top: 0;
+    color: #03dac6;
+    text-align: center;
+  }
+  p {
+    margin-top: 0;
+    color: #03dac6;
+  }
+  span{
+    margin-top: 0;
+    color: #03dac6;
+  }
+
+  h3 {
+    margin-top: 0;
+    color: #03dac6;
+  }
+  h4 {
+    margin-top: 0;
+    color: #03dac6;
+  }
+  
+
+  li{
+    margin-top: 0;
+    color: whitesmoke
+  }
+
+ 
+  

@@ -1,0 +1,35 @@
+<!-- <div [class.dark-theme]="isDarkMode" [class.light-theme]="!isDarkMode">
+    <button class="theme-toggle" (click)="toggleDarkMode()">
+      {{ isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+    </button>  -->
+    
+    <div class="resume-analyzer-container" [ngClass]="{'dark-theme': isDarkMode, 'light-theme': !isDarkMode}">
+      <h1>Resume Match Analyzer</h1>
+  
+      <div class="upload-section">
+        <h2>Upload Resume</h2>
+        <div class="file-upload">
+          <input type="file" id="resumeUpload" class="file-input" (change)="onFileSelected($event)"
+          accept=".pdf,.doc,.docx" >
+          <label for="resumeUpload" class="file-label">
+            <span class="file-button">Choose File</span>
+            <span class="file-name">{{selectedFileName || 'No file chosen'}}</span>
+          </label>
+        </div>
+        
+        <div class="job-description">
+          <textarea class="job-desc-textarea"
+          [(ngModel)]="jobDescription"
+          placeholder="Paste Job Description here..."
+          required
+          ></textarea>
+        </div>
+      </div>
+  
+      <div class="divider"></div>
+      <div class="button-container">
+      <button class="analyze-button" (click)="analyzeResume()">Analyze Resume</button>
+      
+    </div>
+    </div>
+  <!-- </div> -->
