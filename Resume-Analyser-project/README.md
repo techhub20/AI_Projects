@@ -1,5 +1,5 @@
 
-# Resume Analyzer - Full Stack Solution
+# Resume Analyzer - Full Stack Project
 
 This is a full-stack solution for the **Resume Analyzer** application. It includes three main projects:
 
@@ -64,7 +64,7 @@ This project uses Docker Compose to run all three services (Frontend, Flask Back
 ```bash
  docker ps
  
- docker-compose up --build
+ docker compose up --build
 
 #### If required to stop and remove existing containers
  docker compose down -v
