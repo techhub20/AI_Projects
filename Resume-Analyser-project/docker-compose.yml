@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./resumeanalyser-frontend
+    container_name: resumeanalyser-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./resumeanalyser-backend
+    container_name: resumeanalyser-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - ai-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/api_builder?useSSL=false&allowPublicKeyRetrieval=true 
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+      SPRING_JPA_HIBERNATE_DIALECT: org.hibernate.dialect.MySQLDialect
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    entrypoint: ["./wait-for-it.sh", "resumeanalyser-db:3306", "--", "java", "-jar", "app.jar"]
+
+  ai-service:
+    build:
+      context: ./resume-analyzer-ai-service
+    container_name: resumeanalyser-ai
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_APP: app.py
+    entrypoint: ["./wait-for-it.sh", "resumeanalyser-db:3306", "--", "python3", "app.py"]
+    depends_on:
+      - mysql  
+
+  mysql:
+    image: mysql:8
+    container_name: resumeanalyser-db
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: api_builder
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
